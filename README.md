@@ -10,7 +10,7 @@ Este é um sistema interativo onde os usuários acumulam pontos ao realizar tare
 - **Frontend**: HTML, CSS (tema gamificado), JavaScript
 - **Backend**: PHP (conectado ao banco via PDO)
 - **Banco de Dados**: Azure SQL Database
-- **Extras (futuro)**: Integração com Python para relatórios ou lógica avançada
+- **Extras (futuro)**: Integração com Python para relatórios
 
 ---
 
