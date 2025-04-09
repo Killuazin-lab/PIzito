@@ -1,7 +1,7 @@
 
-# 🎮 Sistema de Tarefas e Recompensas - Projeto Gamificado
+# 🎮 Marombas Guaraní
 
-Este é um sistema interativo desenvolvido para eventos e feiras acadêmicas, onde os usuários acumulam pontos ao realizar tarefas e visitar outros projetos. Ao atingir metas, podem trocar os pontos por recompensas, como sucos 🧃.
+Este é um sistema interativo onde os usuários acumulam pontos ao realizar tarefas e visitar outros projetos. Ao atingir metas, podem trocar os pontos por recompensas, como sucos 🧃.
 
 ---
 
