@@ -14,12 +14,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['nome'] = $usuario['nome'];
         header("Location: dashboard.php");
     } else {
-        echo "Login inválido!";
+        echo "Login inv\u00e1lido!";
     }
 }
 ?>
-<form method="post">
-  <input type="email" name="email" placeholder="Email" required><br>
-  <input type="password" name="senha" placeholder="Senha" required><br>
-  <button type="submit">Entrar</button>
-</form>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Marombas Guarani</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <h1>MAROMBAS GUARANI</h1>
+  <img src="assets/img/maromba.png" alt="Logo Maromba" class="logo">
+  <form method="post">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <button type="submit">Entrar</button>
+    <a href="cadastro.php">Cadastrar</a>
+  </form>
+</body>
+</html>

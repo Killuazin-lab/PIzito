@@ -13,9 +13,10 @@ body {
   height: 100vh;
 }
 
-h1, h2, h3 {
+h1, h2 {
   color: #00ffe7;
   text-shadow: 0 0 10px #00ffe7;
+  text-align: center;
 }
 
 form {
@@ -62,6 +63,7 @@ a {
   text-decoration: none;
   margin: 10px;
   transition: color 0.3s;
+  display: inline-block;
 }
 
 a:hover {
@@ -75,4 +77,9 @@ a:hover {
   box-shadow: 0 0 25px #00ffe7;
   text-align: center;
   width: 400px;
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
 }

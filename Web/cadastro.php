@@ -11,9 +11,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header("Location: login.php");
 }
 ?>
-<form method="post">
-  <input type="text" name="nome" placeholder="Nome" required><br>
-  <input type="email" name="email" placeholder="Email" required><br>
-  <input type="password" name="senha" placeholder="Senha" required><br>
-  <button type="submit">Cadastrar</button>
-</form>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro - Marombas Guarani</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <h1>MAROMBAS GUARANI</h1>
+  <img src="assets/img/maromba.png" alt="Logo Maromba" class="logo">
+  <form method="post">
+    <input type="text" name="nome" placeholder="Nome" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <button type="submit">Cadastrar</button>
+  </form>
+</body>
+</html>
