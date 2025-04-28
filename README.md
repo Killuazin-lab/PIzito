@@ -1,7 +1,7 @@
 
-# 🎮 Sistema de Tarefas e Recompensas - Projeto Gamificado
+# 🎮 Marombas Guaraní
 
-Este é um sistema interativo desenvolvido para eventos e feiras acadêmicas, onde os usuários acumulam pontos ao realizar tarefas e visitar outros projetos. Ao atingir metas, podem trocar os pontos por recompensas, como sucos 🧃.
+Este é um sistema interativo onde os usuários acumulam pontos ao realizar tarefas e visitar outros projetos. Ao atingir metas, podem trocar os pontos por recompensas, como sucos 🧃.
 
 ---
 
@@ -10,7 +10,7 @@ Este é um sistema interativo desenvolvido para eventos e feiras acadêmicas, on
 - **Frontend**: HTML, CSS (tema gamificado), JavaScript
 - **Backend**: PHP (conectado ao banco via PDO)
 - **Banco de Dados**: Azure SQL Database
-- **Extras (futuro)**: Integração com Python para relatórios ou lógica avançada
+- **Extras (futuro)**: Integração com Python para relatórios
 
 ---
 
