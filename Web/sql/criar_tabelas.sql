@@ -4,6 +4,11 @@ CREATE TABLE usuario (
     nome VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     senha VARCHAR(255) NOT NULL,
+    apelido VARCHAR(100),
+    idade INT NOT NULL,
+    peso FLOAT NOT NULL,
+    altura FLOAT NOT NULL,
+    data_nascimento DATE NOT NULL;
     pontos INT DEFAULT 0
 );
 
