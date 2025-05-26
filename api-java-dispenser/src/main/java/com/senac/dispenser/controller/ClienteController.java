@@ -1,6 +1,9 @@
 package com.senac.dispenser.controller;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +36,19 @@ public class ClienteController {
             .map(ResponseEntity::ok)
             .orElse(ResponseEntity.notFound().build());
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<Cliente> login(@RequestBody Map<String, String> body) {
+        String email = body.get("email");
+        String senha = body.get("senha");
+
+        Optional<Cliente> cliente = clienteService.findByEmail(email);
+        if (cliente.isPresent() && cliente.get().getSenha().equals(senha)) {
+            return ResponseEntity.ok(cliente.get());
+        }
+        return ResponseEntity.status(401).build();
+    }
+
 
     @PostMapping
     public Cliente create(@RequestBody Cliente cliente) {

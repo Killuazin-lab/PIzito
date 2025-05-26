@@ -1,11 +1,13 @@
 <?php
-$server = "mysql:host=www.thyagoquintas.com.br;dbname=engenhria_34;charset=utf8";
-$username = "engenhria_34";
+$server = "www.thyagoquintas.com.br";
+$dbname = "engenharia_34";
+$username = "engenharia_34";
 $password = "ararinhaazul";
 
 try {
-    $conn = new PDO($server, $username, $password);
+    $conn = new PDO("mysql:host=$server;dbname=$dbname;charset=utf8", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // echo "Conectado com sucesso!";
 } catch (PDOException $e) {
     die("Erro na conexão: " . $e->getMessage());
 }

@@ -1,11 +1,9 @@
 <?php
 session_start();
-include('includes/conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['cadastro'])) {
   $dados = $_SESSION['cadastro'];
   $nome = $dados['nome'];
-  $apelido = $dados['apelido'];
   $email = $dados['email'];
   $senha = $dados['senha'];
 
@@ -14,19 +12,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['cadastro'])) {
   $altura = $_POST['altura'];
   $data_nascimento = $_POST['data_nascimento'];
 
-  // Começa com 10 pontos
-  $sql = "INSERT INTO usuario (nome, apelido, email, senha, idade, peso, altura, data_nascimento, pontos)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, 10)";
-  $stmt = $conn->prepare($sql);
-  $stmt->execute([$nome, $apelido, $email, $senha, $idade, $peso, $altura, $data_nascimento]);
+  // Criação de cliente via API Java
+  $cliente = [
+    'nome' => $nome,
+    'email' => $email,
+    'senha' => $senha,
+    'idade' => $idade,
+    'peso' => $peso,
+    'altura' => $altura,
+    'dataNascimento' => $data_nascimento,
+    'pontos' => 10
+  ];
 
-  unset($_SESSION['cadastro']);
-  $_SESSION['usuario_id'] = $conn->lastInsertId();
-  $_SESSION['nome'] = $apelido;
+  $ch = curl_init("http://localhost:8080/api/clientes");
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($cliente));
+  curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+  $response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
 
-  header("Location: dashboard.php");
-  exit();
+unset($_SESSION['cadastro']);
+
+if ($httpCode === 200 || $httpCode === 201) {
+    $_SESSION['nome'] = $dados['apelido'];
+    header("Location: dashboard.php");
+    exit();
 } else {
-  echo "Erro ao finalizar cadastro. Volte para o início.";
-}
-?>
+    echo "<strong>Erro ao salvar no banco via API.</strong><br>";
+    echo "Código HTTP: " . $httpCode . "<br>";
+    echo "Resposta da API: <pre>$response</pre>";
+}}

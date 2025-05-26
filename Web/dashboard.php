@@ -2,7 +2,7 @@
 include('includes/auth.php');
 include('includes/conexao.php');
 
-$usuario_id = $_SESSION['usuario_id'];
+$usuario_id = $_SESSION['id'];
 $stmt = $conn->prepare("SELECT apelido, pontos, idade, peso, altura, data_nascimento FROM usuario WHERE id = ?");
 $stmt->execute([$usuario_id]);
 $usuario = $stmt->fetch();
